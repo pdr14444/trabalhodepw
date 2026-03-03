@@ -29,11 +29,6 @@ valor_total float not null,
 dt_ent date not null,
 dt_sai date not null);
 
-insert into funcionario values(1,'2010-09-14','Hidrogênio');
-insert into funcionario values(2,'2009-07-12','Oxigênio');
-insert into funcionario values(3,'2010-03-08','Boro');
-insert into funcionario values(4,'2010-02-05','Cobre');
-
 insert into categoria values(1,'simples','sim',300);
 insert into categoria values(2,'complexo','não',450);
 insert into categoria values(3,'wow','talvez',600);
@@ -42,9 +37,14 @@ insert into apto values(101,'D',1);
 insert into apto values(102,'D',2);
 insert into apto values(201,'O',3);
 
-insert into hospedagem values(1,201,3,1,1200,'2020-10-12','2020-10-14');
+insert into funcionario values(1,'2010-09-14','Hidrogênio');
+insert into funcionario values(2,'2009-07-12','Oxigênio');
+insert into funcionario values(3,'2010-03-08','Boro');
+insert into funcionario values(4,'2010-02-05','Cobre');
 
 insert into hospede values(1,'2010-04-03','Computador');
+
+insert into hospedagem values(1,201,3,1,1200,'2020-10-12','2020-10-14');
 
 --SINTAXE INSERT:
 --INSERT INTO tabela(s) VALUES(valor1,valor2,...);
