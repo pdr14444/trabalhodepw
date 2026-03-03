@@ -52,7 +52,7 @@ insert into hospede values(1,'2010-04-03','Computador');
 --SINTAXE SELECT:
 --SELECT atributo(s) FROM tabela(s) WHERE condição(ões);
 
---QUESTÃO
+--QUESTÃO (03/03/2026)
 --A) O NOME DOS FUNCIONÁRIOS DE CÓDIGO 1 ou 3
 select nome from funcionario where cod_func=1 or cod_func=3;
 
