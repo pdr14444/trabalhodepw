@@ -1,4 +1,6 @@
 --BANCO DE DADOS DE UM HOTEL
+
+--CRIAR TABELAS
 create table categoria(
 cod_cat int not null primary key,
 nome varchar(50) not null,
@@ -29,6 +31,7 @@ valor_total float not null,
 dt_ent date not null,
 dt_sai date not null);
 
+--INSERIR VALORES
 insert into categoria values(1,'simples','sim',300);
 insert into categoria values(2,'complexo','não',450);
 insert into categoria values(3,'wow','talvez',600);
@@ -53,17 +56,25 @@ insert into hospedagem values(1,201,3,1,1200,'2020-10-12','2020-10-14');
 --SELECT atributo(s) FROM tabela(s) WHERE condição(ões);
 
 --QUESTÃO (03/03/2026)
---A) O NOME DOS FUNCIONÁRIOS DE CÓDIGO 1 ou 3
+--A) O NOME DOS FUNCIONÁRIOS DE CÓDIGO 1 ou 3:
 select nome from funcionario where cod_func=1 or cod_func=3;
 
---B) O CÓDIGO E O NOME DAS CATEGORIAS QUE CUSTAM MAIS DE R$400,00 A DIÁRIA
+--B) O CÓDIGO E O NOME DAS CATEGORIAS QUE CUSTAM MAIS DE R$400,00 A DIÁRIA:
 select cod_cat,nome from categoria where valor_dia>400;
 
---C) O NÚMERO DOS APARTAMENTOS DA CATETGORIA DE CÓDIGO 1, 2 ou 3
-select num from apto where cod_cat=1 or cod_cat=2 or cod_cat=3;
+--C) O NÚMERO DOS APARTAMENTOS DA CATETGORIA DE CÓDIGO 1, 2 ou 3:
+--FORMA 1(usando 'in'):
+select num from apto where cod_cat in (1,2,3);
+--FORMA 2(usando 'between'):
+select num from apto where cod_cat between 1 and 3;
 
---D) O CÓDIGO DAS HOSPEDAGENS REALIZADAS PARA O HÓSPEDE DE CÓDIGO 1 NO APARTAMENTO 101
+--D) O CÓDIGO DAS HOSPEDAGENS REALIZADAS PARA O HÓSPEDE DE CÓDIGO 1 NO APARTAMENTO 101:
 select cod_hospeda from hospedagem where cod_hosp=1 and num=101;
 
---E) TODAS AS INFORMAÇÕES DOS FUNCIONÁRIOS QUE NASCERAM NO ANO DE 2010
+--E) TODAS AS INFORMAÇÕES DOS FUNCIONÁRIOS QUE NASCERAM NO ANO DE 2010:
+--FORMA 1(intervalo):
 select * from funcionario where dt_nasc>='2010-01-01' and dt_nasc<'2011-01-01';
+--FORMA 2(usando 'between'):
+select * from funcionario where dt_nasc between '2010-01-01' and '2010-12-31';
+--FORMA 3(usando 'extract'):
+select * from funcionario where extract(year from dt_nasc) = 2010;
